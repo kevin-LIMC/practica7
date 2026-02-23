@@ -1,0 +1,657 @@
+/* =========================================
+   PRACTICA 8 - DRAGON DORADO
+   CSS con clases e identificadores
+   ========================================= */
+
+/* --- Configuración general (paso 8) --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f5f5f5;
+    font-family: 'Lato', sans-serif;
+    color: #333333;
+    min-height: 100vh;
+}
+
+/* =========================================
+   IDENTIFICADOR: #encabezado (paso 10)
+   ========================================= */
+#encabezado {
+    background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 50%, #ffffff 100%);
+    height: 220px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 2px solid #333333;
+    position: relative;
+    overflow: hidden;
+}
+
+#encabezado::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: 
+        radial-gradient(circle at 20% 50%, rgba(100, 100, 100, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 50%, rgba(100, 100, 100, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+/* --- Logo area --- */
+#logo-area {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 18px;
+    animation: fadeDown 0.8s ease;
+}
+
+.logo-circle {
+    font-size: 3.2rem;
+    background: radial-gradient(circle, #e0e0e0, #cccccc);
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #666666;
+    box-shadow: 0 0 20px rgba(100, 100, 100, 0.2);
+}
+
+.logo-main {
+    display: block;
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 1.8rem;
+    color: #333333;
+    letter-spacing: 2px;
+    text-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.logo-sub {
+    display: block;
+    font-size: 0.85rem;
+    color: #666666;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+/* =========================================
+   IDENTIFICADOR: #menu (paso 12)
+   ========================================= */
+#menu {
+    height: 44px;
+    position: relative;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* --- Estilos del menú ul/li (paso 13) --- */
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #ffffff;
+    display: flex;
+    border-radius: 4px;
+    border: 1px solid #cccccc;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: #333333;
+    text-align: center;
+    padding: 12px 22px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: background 0.25s, color 0.25s;
+    border-right: 1px solid #e0e0e0;
+}
+
+li a:hover {
+    background-color: #e8e8e8;
+    color: #000000;
+}
+
+li:last-child a {
+    border-right: none;
+}
+
+/* =========================================
+   CLASE: .areaPrincipal (paso 9)
+   ========================================= */
+.areaPrincipal {
+    background-image: url("../img/fondo.jpg");
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 480px;
+    opacity: 1;
+    -webkit-background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+    -o-background-size: 100% 100%;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.areaPrincipal::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(26,10,0,0.4) 0%, rgba(26,10,0,0.65) 100%);
+}
+
+/* --- Hero overlay dentro de areaPrincipal --- */
+.hero-overlay {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 40px;
+    animation: fadeUp 1s ease;
+}
+
+.hero-title {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 2.8rem;
+    color: #333333;
+    text-shadow: 2px 2px 20px rgba(0,0,0,0.1), 0 0 30px rgba(100,100,100,0.1);
+    margin-bottom: 14px;
+    letter-spacing: 2px;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    color: #555555;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+    opacity: 0.9;
+}
+
+.btn-hero {
+    display: inline-block;
+    background: #333333;
+    color: #ffffff;
+    padding: 14px 40px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 3px;
+    border: 2px solid #333333;
+    transition: all 0.3s;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+
+.btn-hero:hover {
+    background: #555555;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+}
+
+/* =========================================
+   IDENTIFICADOR: #datos (paso 14)
+   ========================================= */
+#datos {
+    width: 90%;
+    background-color: #ffffff;
+    height: auto;
+    margin: 40px auto;
+    opacity: 1;
+    color: #333333;
+    padding: 40px;
+    font-family: 'Lato', Tahoma, Geneva, Verdana, sans-serif;
+    border-radius: 6px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* --- Cards dentro de datos --- */
+.datos-grid {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+}
+
+.dato-card {
+    flex: 1;
+    min-width: 200px;
+    background: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    padding: 28px 24px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.dato-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border-color: #cccccc;
+}
+
+.dato-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 14px;
+}
+
+/* Placeholder para imágenes en tarjetas de datos */
+.dato-image-placeholder {
+    font-size: 0.9rem;
+    text-align: center;
+    padding: 30px 15px;
+    background: #e8e8e8;
+    color: #999999;
+    font-weight: 500;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dato-card h3 {
+    font-family: 'Noto Serif SC', serif;
+    color: #333333;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.dato-card p {
+    font-size: 0.92rem;
+    line-height: 1.7;
+    color: #666666;
+}
+
+/* --- Sección especiales --- */
+.especiales h2 {
+    font-family: 'Cinzel Decorative', serif;
+    color: #333333;
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    padding-bottom: 14px;
+    border-bottom: 2px solid #e0e0e0;
+    letter-spacing: 2px;
+}
+
+.especiales-grid {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.especial-item {
+    background: linear-gradient(135deg, #f9f9f9, #f0f0f0);
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 28px 30px;
+    text-align: center;
+    min-width: 200px;
+    flex: 1;
+    transition: transform 0.3s;
+}
+
+.especial-item:hover {
+    transform: scale(1.04);
+    border-color: #999999;
+}
+
+.especial-emoji {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* Placeholder para imágenes en especiales */
+.especial-image {
+    font-size: 0.85rem;
+    text-align: center;
+    padding: 30px 15px;
+    background: #e8e8e8;
+    color: #999999;
+    font-weight: 500;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    min-height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.especial-item strong {
+    display: block;
+    color: #333333;
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    font-family: 'Noto Serif SC', serif;
+}
+
+.especial-item p {
+    font-size: 0.88rem;
+    color: #666666;
+    margin-bottom: 14px;
+    line-height: 1.6;
+}
+
+.precio {
+    display: inline-block;
+    background: #333333;
+    color: #ffffff;
+    font-weight: 700;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.95rem;
+}
+
+/* =========================================
+   CLASE: .piePagina (paso 11)
+   ========================================= */
+.piePagina {
+    width: 100%;
+    height: auto;
+    min-height: 80px;
+    background: #333333;
+    color: #ffffff;
+    bottom: 0;
+    position: fixed;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 20px;
+    text-align: center;
+    border-top: 2px solid #000000;
+    font-size: 0.82rem;
+    gap: 4px;
+    z-index: 1000;
+}
+
+.piePagina a {
+    color: #e0e0e0;
+    text-decoration: none;
+}
+
+.piePagina a:hover {
+    text-decoration: underline;
+}
+
+/* =========================================
+   PÁGINA BANNER (páginas internas)
+   ========================================= */
+.page-banner {
+    background: linear-gradient(135deg, #ffffff, #f0f0f0);
+    padding: 32px 20px;
+    text-align: center;
+    border-bottom: 2px solid #333333;
+}
+
+.page-title {
+    font-family: 'Cinzel Decorative', serif;
+    color: #333333;
+    font-size: 2rem;
+    letter-spacing: 3px;
+    text-shadow: 0 0 20px rgba(0,0,0,0.05);
+}
+
+/* --- Secciones de texto --- */
+.seccion {
+    margin-bottom: 40px;
+}
+
+.seccion-titulo {
+    font-family: 'Noto Serif SC', serif;
+    color: #333333;
+    font-size: 1.3rem;
+    margin-bottom: 18px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.seccion p {
+    color: #555555;
+    line-height: 1.8;
+    margin-bottom: 12px;
+}
+
+/* =========================================
+   CATÁLOGO - Productos
+   ========================================= */
+.producto-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.producto-card {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 240px;
+    max-width: 320px;
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.producto-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+    border-color: #999999;
+}
+
+.producto-img {
+    font-size: 4rem;
+    text-align: center;
+    padding: 24px;
+    background: rgba(200,134,10,0.08);
+}
+
+/* Placeholder para imágenes de productos */
+.producto-img-placeholder {
+    font-size: 0.95rem;
+    text-align: center;
+    padding: 40px 20px;
+    background: #e8e8e8;
+    color: #999999;
+    font-weight: 500;
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #d0d0d0;
+}
+
+.producto-info {
+    padding: 18px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.producto-info h3 {
+    font-family: 'Noto Serif SC', serif;
+    color: #333333;
+    font-size: 1.05rem;
+}
+
+.ingredientes {
+    font-size: 0.83rem;
+    color: #666666;
+    line-height: 1.6;
+    flex: 1;
+}
+
+.ingredientes strong {
+    color: #333333;
+}
+
+/* =========================================
+   GALERÍA
+   ========================================= */
+.galeria-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.galeria-item {
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s, border-color 0.3s;
+    cursor: pointer;
+}
+
+.galeria-item.grande {
+    grid-column: span 2;
+}
+
+.galeria-item:hover {
+    transform: scale(1.03);
+    border-color: #999999;
+}
+
+.galeria-emoji {
+    font-size: 5rem;
+    padding: 30px 20px 16px;
+    display: block;
+}
+
+.galeria-item.grande .galeria-emoji {
+    font-size: 7rem;
+}
+
+/* Placeholder para imágenes en galería */
+.galeria-image-placeholder {
+    font-size: 0.9rem;
+    text-align: center;
+    padding: 50px 20px;
+    background: #e8e8e8;
+    color: #999999;
+    font-weight: 500;
+    min-height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.galeria-item.grande .galeria-image-placeholder {
+    min-height: 200px;
+    font-size: 1rem;
+}
+
+.galeria-caption {
+    padding: 10px 14px 18px;
+    font-size: 0.88rem;
+    color: #666666;
+    font-style: italic;
+}
+
+/* =========================================
+   CONTACTO
+   ========================================= */
+.contacto-grid {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.contacto-info {
+    flex: 1;
+    min-width: 280px;
+}
+
+/* Icono neutro para contacto */
+.contacto-icon-neutral {
+    font-size: 1.6rem;
+    flex-shrink: 0;
+    color: #999999;
+}
+
+.contacto-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    margin-bottom: 22px;
+    padding: 16px;
+    background: #f9f9f9;
+    border-radius: 6px;
+    border: 1px solid #e0e0e0;
+}
+
+.contacto-icon {
+    font-size: 1.6rem;
+    flex-shrink: 0;
+}
+
+.contacto-item strong {
+    display: block;
+    color: #333333;
+    margin-bottom: 4px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.contacto-item p {
+    color: #666666;
+    font-size: 0.92rem;
+    line-height: 1.6;
+}
+
+.mapa-container {
+    flex: 1;
+    min-width: 280px;
+}
+
+/* --- Espacio inferior para el footer fijo --- */
+body::after {
+    content: '';
+    display: block;
+    height: 100px;
+}
+
+/* =========================================
+   ANIMACIONES
+   ========================================= */
+@keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
